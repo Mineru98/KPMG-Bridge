@@ -1,8 +1,9 @@
 "use client";
 import { useCallback } from "react";
 import { useCounterStore } from "@/stores";
+import BaseLayout from "@/components/base";
 
-export default function ChatPage() {
+export default function ChatPage(): JSX.Element {
   const { count, increase, decrease } = useCounterStore((state) => state);
 
   const increaseHandler = useCallback(() => {
@@ -14,7 +15,7 @@ export default function ChatPage() {
   }, [decrease]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <BaseLayout>
       <div className="flex flex-row items-center justify-center w-[256px] text-lg">
         <button
           className="bg-slate-400 w-8 rounded-md"
@@ -32,6 +33,6 @@ export default function ChatPage() {
           +
         </button>
       </div>
-    </main>
+    </BaseLayout>
   );
 }
